@@ -44,19 +44,25 @@ function Login(): JSX.Element {
       password,
     };
 
-    try {
-      setLoading(true);
-      let response = await login(body);
-      const { token } = response.data;
-      loginContext(token);
-      navigate("/perfil");
-    } catch (error: any) {
-      error.response?.data
-        ? setErrorMessage(error.response.data.message)
-        : setErrorMessage("Ocorreu um erro ao realizar o login.");
-    } finally {
-      setLoading(false);
-    }
+    // DESCOMENTAR CÓDIGO ABAIXO PARA RODAR APLICAÇÃO COM BACKEND
+    // try {
+    //   setLoading(true);
+    //   let response = await login(body);
+    //   const { token } = response.data;
+    //   loginContext(token);
+    //   navigate("/perfil");
+    // } catch (error: any) {
+    //   error.response?.data
+    //     ? setErrorMessage(error.response.data.message)
+    //     : setErrorMessage("Ocorreu um erro ao realizar o login.");
+    // } finally {
+    //   setLoading(false);
+    // }
+
+    // COMENTAR AS TRÊS LINHAS ABAIXO PARA RODAR APLICAÇÃO COM BACKEND
+    window.alert("Email: " + email + " - Senha: " + password);
+    loginContext("tokenjwt");
+    navigate("/perfil");
   }
 
   useEffect(() => {

@@ -1,4 +1,5 @@
-import { MapPin } from "react-feather";
+import { LogOut, MapPin } from "react-feather";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ProfileHeader = styled.div`
@@ -31,6 +32,11 @@ const DescriptionArea = styled.div`
   gap: 16px;
 `;
 
+const FooterArea = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const LocationArea = styled.div`
   display: flex;
   gap: 4px;
@@ -43,4 +49,26 @@ const PinIcon = styled(MapPin)`
   height: 18px;
 `;
 
-export { ProfileHeader, HeaderText, DescriptionArea, LocationArea, PinIcon };
+const LogoutIcon = styled(LogOut)`
+  color: ${(props) => props.theme.colors.PRIMARY_DARK};
+  width: 18px;
+  height: 18px;
+`;
+
+const LogoutLink = styled(Link)`
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: ${(props) => props.theme.colors.PRIMARY_DARK};
+`;
+
+export {
+  ProfileHeader,
+  HeaderText,
+  DescriptionArea,
+  FooterArea,
+  LocationArea,
+  PinIcon,
+  LogoutIcon,
+  LogoutLink,
+};

@@ -90,25 +90,53 @@ function SignUp(): JSX.Element {
       user.description = description;
     }
 
-    const formData = new FormData();
-    Object.keys(user).forEach((key) => {
-      formData.append(key, user[key]);
-    });
+    // DESCOMENTAR CÓDIGO ABAIXO PARA RODAR APLICAÇÃO COM BACKEND
+    // const formData = new FormData();
+    // Object.keys(user).forEach((key) => {
+    //   formData.append(key, user[key]);
+    // });
 
-    if (image) {
-      formData.append("profilePicture", image);
-    }
+    // if (image) {
+    //   formData.append("profilePicture", image);
+    // }
 
-    try {
-      setLoading(true);
-      let response = await postUser(formData);
-      setMessage(response.data.message);
-    } catch (error: any) {
-      setMessage("Ocorreu um erro ao realizar seu cadastro. Tente novamente.");
-      setError(true);
-    } finally {
-      setLoading(false);
-    }
+    // try {
+    //   setLoading(true);
+    //   let response = await postUser(formData);
+    //   setMessage(response.data.message);
+    // } catch (error: any) {
+    //   setMessage("Ocorreu um erro ao realizar seu cadastro. Tente novamente.");
+    //   setError(true);
+    // } finally {
+    //   setLoading(false);
+    // }
+
+    // COMENTAR LINHAS ABAIXO PARA RODAR APLICAÇÃO COM BACKEND
+    window.alert(
+      "Nome: " +
+        name +
+        "\nEmail: " +
+        email +
+        "\nSenha: " +
+        password +
+        "\nConfirmação de senha: " +
+        confirmPassword +
+        "\nTipo: " +
+        selectedType +
+        "\nCEP: " +
+        cep +
+        "\nCidade: " +
+        city +
+        "\nEstado: " +
+        state +
+        "\nCausa: " +
+        cause +
+        "\nCausa personalizada: " +
+        customCause +
+        "\nDescrição: " +
+        description
+    );
+    setMessage("Seu cadastro foi realizado com sucesso!");
   }
 
   async function authenticateUser() {
@@ -117,17 +145,22 @@ function SignUp(): JSX.Element {
       password,
     };
 
-    try {
-      setLoading(true);
-      let response = await login(body);
-      const { token } = response.data;
-      loginContext(token);
-      navigate("/perfil");
-    } catch (error: any) {
-      navigate("/login");
-    } finally {
-      setLoading(false);
-    }
+    // DESCOMENTAR CÓDIGO ABAIXO PARA RODAR APLICAÇÃO COM BACKEND
+    // try {
+    //   setLoading(true);
+    //   let response = await login(body);
+    //   const { token } = response.data;
+    //   loginContext(token);
+    //   navigate("/perfil");
+    // } catch (error: any) {
+    //   navigate("/login");
+    // } finally {
+    //   setLoading(false);
+    // }
+
+    // COMENTAR AS LINHAS ABAIXO PARA RODAR APLICAÇÃO COM BACKEND
+    loginContext("tokenjwt");
+    navigate("/perfil");
   }
 
   useEffect(() => {
